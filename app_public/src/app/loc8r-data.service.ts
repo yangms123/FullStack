@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location, Review } from './location';
 import { lastValueFrom } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +10,8 @@ export class Loc8rDataService {
 
   constructor(private http: HttpClient) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api';
-
+  //private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
   async getLocations(lat: number, lng: number): Promise<Location[]> {
     const maxDistance: number = 200000000000000;
     const url: string = `${this.apiBaseUrl}/locations?lng=${lng}&lat=${lat}&maxDistance=${maxDistance}`;
