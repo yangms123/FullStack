@@ -30,11 +30,11 @@ app.use('/api', (req, res, next) => {
 });
 
 // app.use('/', indexRouter);
-// app.use('/api',apiRouter);
+app.use('/api',apiRouter);
 // // app.use('/users', usersRouter);
-// app.get(/(\/about)|(\/location\/[a-z0-9]{24})/, function(req, res) {
-//   res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
-// });
+app.get('/(\/about)|(\/location\/[a-z0-9]{24})/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
